@@ -4,22 +4,25 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link rel="stylesheet" href="style.css">
         <!-- bootsterap -->
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         />
-        <style>
-            .answerBtn {
-                display: block;
-                width: 100%;
-                margin: 0 auto;
-            }
-        </style>
+
     </head>
     <body>
-        <div id="question"></div>
 
+        <div class="container mt-5">
+             <div id="test"></div>
+             <div class="card-body row justify-content-center">
+             <h5 id="test_status">Are you ready to take the quiz?</h5>
+            </div>
+             <div class="row justify-content-center">
+             <button id="btn" class="alert alert-info btn-sm" type="button" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>
