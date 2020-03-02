@@ -63,7 +63,7 @@ function displayQuestion(){
     test.innerHTML += "<input class='ml-4' type='radio' name='options' value='C'>" + opC + "<br>";
     test.innerHTML += "<input class='ml-4' type='radio' name='options' value='D'>" + opD + "<br><br>";
     test.innerHTML += "<button class='alert alert-info ml-4 btn-sm' onclick='checkAnswer()'>Submit Answer</button>";
-    test.innerHTML += "<div class='row justify-content-center' id='timer'></div>";
+    test.innerHTML += "<div class='row justify-content-center' id='timer'></div><br>";
 
 }
 
