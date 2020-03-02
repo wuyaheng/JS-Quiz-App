@@ -45,7 +45,7 @@ function displayQuestion(){
     if (pos >= questions.length){
         test.innerHTML = "<h6 class='card-body text-center'>You got " + score + " out of " + questions.length + " questions correct!<h6>";
         $("test_status").innerHTML = "Test Completed";
-        $("test_status").innerHTML = "<button id='btn' class='alert alert-info btn-sm' type='button' onclick='startQuiz()'>Retake Quiz</button>";
+        $("test_status").innerHTML = "<button id='btn' class='alert alert-info btn-sm' type='button' onclick='startQuiz()'>Retake the Quiz</button>";
         pos = 0;
         score = 0;
         return false;
@@ -63,6 +63,8 @@ function displayQuestion(){
     test.innerHTML += "<input class='ml-4' type='radio' name='options' value='C'>" + opC + "<br>";
     test.innerHTML += "<input class='ml-4' type='radio' name='options' value='D'>" + opD + "<br><br>";
     test.innerHTML += "<button class='alert alert-info ml-4 btn-sm' onclick='checkAnswer()'>Submit Answer</button>";
+    test.innerHTML += "<div class='row justify-content-center' id='timer'></div>";
+
 }
 
 function checkAnswer(){
@@ -78,5 +80,17 @@ function checkAnswer(){
     }
     pos++;
     displayQuestion();
-}
+    }
 
+
+var sec = 60;
+var time = setInterval(myTimer, 1000);
+
+function myTimer(){
+    document.getElementById("timer").innerHTML = sec + " sec left";
+    sec--;
+    if(sec == -1){
+        clearInterval(time);
+        alert("Time out!");
+    }
+}
