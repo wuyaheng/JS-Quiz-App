@@ -11,6 +11,7 @@ function startQuiz(){
     return displayQuestion();
 }
 
+
 var questions = [
     {
         question: "1. What is a software?",
@@ -67,14 +68,11 @@ function displayQuestion() {
 
 function checkAnswer() {
     if (this.textContent !== questions[currentQuestion].answer) {
-        // document.body.style.background = "url('images/giphyWrong.gif')";
         nextQuestion();
     } else {
         currentScore = currentScore + 1;
-        // document.body.style.background = "url('images/giphyRight.gif')";
         nextQuestion();
     }
-
 }
    
 function nextQuestion() {
@@ -86,8 +84,19 @@ function endQuiz() {
     questionContainer.innerHTML = '';
     choiceContainer.innerHTML = '';
     document.body.style.background = 'transparent';
-    let displayResult = document.createElement('div');  
+    let retakeBtn = document.createElement('button');
+    retakeBtn.className = 'btn-block btn btn-dark mt-3';
+    retakeBtn.innerHTML = `Retake Quiz`;
+    let displayResult = document.createElement('div'); 
     displayResult.className = 'card-body';
     displayResult.innerHTML = `You got ${currentScore} out of ${questions.length} questions correct!`;
-    resultContainer.appendChild(displayResult);  
+    if(currentScore == questions.length) {
+        resultContainer.appendChild(displayResult).appendChild(retakeBtn); 
+        document.body.style.background = "url('images/giphyRight.gif')";
+    } else {
+        resultContainer.appendChild(displayResult).appendChild(retakeBtn);   
+        document.body.style.background = "url('images/giphyWrong.gif')"; 
+    }
+    
 }
+
