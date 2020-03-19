@@ -9,3 +9,13 @@ button:focus {
     border: 0 !important;
     box-shadow: none !important;
 }
+
+.right {
+    /* background: url('images/giphyRight.gif'); */
+    background-color: aquamarine;
+}
+
+.wrong {
+    /* background: url('images/giphyWrong.gif');  */
+    background-color: red;
+}

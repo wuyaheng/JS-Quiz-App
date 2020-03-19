@@ -1,96 +1,82 @@
+let currentQuestion = 0;
+const questionContainer = document.querySelector('#question-container');
+const choiceContainer = document.querySelector('#choice-container');
+const answerContainer = document.querySelector('#answer-container');
+const nextBtn = document.querySelector('#next-btn');
+
+
+
 function startQuiz(){
     document.getElementById('btn').style.visibility = "hidden";
     return displayQuestion();
 }
 
-var pos = 0, test, test_status, question, option, options, opA, opB, opC, opD, score = 0;
-
 var questions = [
-    [
-        "1. Where do you see yourself when you are 70?",
-        " as an older person with a good life and a lovely family", 
-        " as a person with a life time of hard learned experience", 
-        " when I close my eyes there should not be any regrets",
-        " all of the above",
-        "D"],
-    [
-        "2. What’s something that you want to change about yourself?",
-        " love people less because of their apperances, instead look at who they really are", 
-        " workout for a feeling of strength, not for bodygoals", 
-        " more self-disciplined",
-        " all of the above",
-        "D"],
-    [
-        "3. If you’re stressed out, what helps you wind down?",
-        " make the most of the sleep",
-        " give yourself a treat", 
-        " meet people that you love",
-        " all of the above",
-        "D"],
-    [
-        "4. What do you look for most in a spouse?",
-        " compatibility", 
-        " common goals", 
-        " kindness",
-        " all of the above",
-        "D"]
+    {
+        question: "1. What is a software?",
+        choices: ["A. Software is documentation and configuration of data", 
+        "B. Software is set of programs", 
+        "C. Software is set of programs, documentation & configuration of data",
+        "D. None of the mentioned"],
+        answer: "C. Software is set of programs, documentation & configuration of data"},
+    {
+        question: "2. Representation of data structure in memory is known as:",
+        choices: ["A. Recursive", 
+        "B. Abstract data type", 
+        "C. Storage structure",
+        "D. File structure"],
+        answer: "B. Abstract data type"},
+    {
+        question: "3. How does JavaScript store dates in a date object?",
+        choices: ["A. The number of milliseconds since January 1st, 1970",
+        "B. The number of days since January 1st, 1900", 
+        "C. The number of seconds since Netscape's public stock offering",
+        "D. None of the above"],
+        answer: "A. The number of milliseconds since January 1st, 1970"},
+    {
+        question: "4. Which types of image maps can be used with JavaScript?",
+        choices: ["A. Server-side image maps", 
+        "B. Client-side image maps", 
+        "C. Server-side image maps and Client-side image maps",
+        "D. None of the above"],
+        answer: "B. Client-side image maps"} 
 ];
 
-function $(arg){
-    return document.getElementById(arg);
-}
+function displayQuestion() {
+    if (currentQuestion === questions.length) {
+        endQuiz();
+    } else {
+        questionContainer.innerHTML = '';
+        choiceContainer.innerHTML = '';
+        let h5Question = document.createElement('h5');
+        h5Question.className = 'list-group-item list-group-item-action list-group-item-warning .disabled';
+        h5Question.innerHTML = questions[currentQuestion].question;
+        questionContainer.appendChild(h5Question);
 
-function displayQuestion(){
-    test = $("test");
-    if (pos >= questions.length){
-        test.innerHTML = "<h6 class='card-body text-center'>You got " + score + " out of " + questions.length + " questions correct!<h6>";
-        $("test_status").innerHTML = "Test Completed";
-        $("test_status").innerHTML = "<button id='btn' class='alert alert-info btn-sm' type='button' onclick='startQuiz()'>Retake the Quiz</button>";
-        pos = 0;
-        score = 0;
-        return false;
-    }
-
-    $("test_status").innerHTML = "Question " + (pos + 1) + " out of " + questions.length;
-    question = questions[pos][0];
-    opA = questions[pos][1];
-    opB = questions[pos][2];
-    opC = questions[pos][3];
-    opD = questions[pos][4];
-    test.innerHTML = "<h3 class='card-body'>" + question + "</h3>";
-    test.innerHTML += "<input class='ml-4' type='radio' name='options' value='A'>" + opA + "<br>";
-    test.innerHTML += "<input class='ml-4' type='radio' name='options' value='B'>" + opB + "<br>";
-    test.innerHTML += "<input class='ml-4' type='radio' name='options' value='C'>" + opC + "<br>";
-    test.innerHTML += "<input class='ml-4' type='radio' name='options' value='D'>" + opD + "<br><br>";
-    test.innerHTML += "<button class='alert alert-info ml-4 btn-sm' onclick='checkAnswer()'>Submit Answer</button>";
-    test.innerHTML += "<div class='row justify-content-center' id='timer'></div><br>";
-
-}
-
-function checkAnswer(){
-    options = document.getElementsByName("options");
-    for (var i = 0; i < options.length; i++){
-        if (options[i].checked){
-            option = options[i].value;
+        for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
+            let btnChoices = document.createElement('button');
+            btnChoices.innerHTML = '';
+            btnChoices.className = 'list-group-item list-group-item-action';
+            btnChoices.innerHTML = questions[currentQuestion].choices[i];
+            
+            choiceContainer.appendChild(btnChoices);
+            btnChoices.onclick = checkAnswer;
         }
     }
+}
 
-    if (option == questions[pos][5]){
-        score++;
+function checkAnswer() {
+    if (this.textContent !== questions[currentQuestion].answer) {
+        document.body.style.background = "url('images/giphyWrong.gif')";
+        nextQuestion();
+    } else {
+        document.body.style.background = "url('images/giphyRight.gif')";
+        nextQuestion();
     }
-    pos++;
+
+}
+   
+function nextQuestion() {
+    ++currentQuestion;
     displayQuestion();
-    }
-
-
-var sec = 60;
-var time = setInterval(myTimer, 1000);
-
-function myTimer(){
-    document.getElementById("timer").innerHTML = sec + " sec left";
-    sec--;
-    if(sec == -1){
-        clearInterval(time);
-        alert("Time out!");
-    }
 }

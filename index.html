@@ -14,17 +14,29 @@
     </head>
     <body>
 
-        <div class="container mt-5">
-             <div id="test"></div>
-             <div class="card-body row justify-content-center">
-             <h5 id="test_status">Are you ready to take the quiz?</h5>
-            </div>
-             <div class="row justify-content-center">
-             <button id="btn" class="alert alert-info btn-sm" type="button" onclick="startQuiz()">Start Quiz</button>
-            </div>
+<div class="container">
 
-          
-        </div>
+    <div class="row justify-content-center mt-3">
+        <button id="btn" class="btn btn-outline-dark" type="button" onclick="startQuiz()">Start Quiz</button>
+    </div>
+    <div class="row justify-content-center list-group">
+        <div id="question-container"></div>
+    </div>
+    <div class="row justify-content-center list-group">
+        <div id="choice-container"></div>
+    </div>
+    <div class="row justify-content-center">
+        <div id="answer-container"></div>
+    </div> 
+
+    <div class="row justify-content-center">
+        <button id="prev-btn" class="btn btn-outline-dark" style="display:none;">Previous</button>
+        <button id="next-btn" class="btn btn-outline-dark" style="display:none;">Next</button>
+    </div>
+
+
+
+</div>
         <script src="script.js"></script>
     </body>
 </html>
