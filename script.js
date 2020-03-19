@@ -6,6 +6,7 @@ const choiceContainer = document.querySelector('#choice-container');
 const answerContainer = document.querySelector('#answer-container');
 
 
+
 function startQuiz(){
     document.getElementById('btn').style.visibility = "hidden";
     return displayQuestion();
@@ -85,7 +86,7 @@ function endQuiz() {
     choiceContainer.innerHTML = '';
     document.body.style.background = 'transparent';
     let retakeBtn = document.createElement('button');
-    retakeBtn.className = 'btn-block btn btn-dark mt-3';
+    retakeBtn.className = 'btn-block btn btn-dark mt-3 retake';
     retakeBtn.innerHTML = `Retake Quiz`;
     let displayResult = document.createElement('div'); 
     displayResult.className = 'card-body';
@@ -99,4 +100,5 @@ function endQuiz() {
     }
     
 }
+
 
