@@ -1,9 +1,9 @@
 let currentQuestion = 0;
+let currentScore = 0; 
+let resultContainer = document.querySelector('#result-container') 
 const questionContainer = document.querySelector('#question-container');
 const choiceContainer = document.querySelector('#choice-container');
 const answerContainer = document.querySelector('#answer-container');
-const nextBtn = document.querySelector('#next-btn');
-
 
 
 function startQuiz(){
@@ -48,6 +48,7 @@ function displayQuestion() {
     } else {
         questionContainer.innerHTML = '';
         choiceContainer.innerHTML = '';
+        document.body.style.background = 'transparent';
         let h5Question = document.createElement('h5');
         h5Question.className = 'list-group-item list-group-item-action list-group-item-warning .disabled';
         h5Question.innerHTML = questions[currentQuestion].question;
@@ -58,7 +59,6 @@ function displayQuestion() {
             btnChoices.innerHTML = '';
             btnChoices.className = 'list-group-item list-group-item-action';
             btnChoices.innerHTML = questions[currentQuestion].choices[i];
-            
             choiceContainer.appendChild(btnChoices);
             btnChoices.onclick = checkAnswer;
         }
@@ -67,10 +67,11 @@ function displayQuestion() {
 
 function checkAnswer() {
     if (this.textContent !== questions[currentQuestion].answer) {
-        document.body.style.background = "url('images/giphyWrong.gif')";
+        // document.body.style.background = "url('images/giphyWrong.gif')";
         nextQuestion();
     } else {
-        document.body.style.background = "url('images/giphyRight.gif')";
+        currentScore = currentScore + 1;
+        // document.body.style.background = "url('images/giphyRight.gif')";
         nextQuestion();
     }
 
@@ -78,5 +79,15 @@ function checkAnswer() {
    
 function nextQuestion() {
     ++currentQuestion;
-    displayQuestion();
+    displayQuestion(); 
+}
+
+function endQuiz() {
+    questionContainer.innerHTML = '';
+    choiceContainer.innerHTML = '';
+    document.body.style.background = 'transparent';
+    let displayResult = document.createElement('div');  
+    displayResult.className = 'card-body';
+    displayResult.innerHTML = `You got ${currentScore} out of ${questions.length} questions correct!`;
+    resultContainer.appendChild(displayResult);  
 }
