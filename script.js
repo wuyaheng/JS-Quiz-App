@@ -87,7 +87,7 @@ function endQuiz() {
     choiceContainer.innerHTML = '';
     document.body.style.background = 'transparent';
     let retakeBtn = document.createElement('button');
-    retakeBtn.className = 'btn-block btn btn-dark mt-3';
+    retakeBtn.className = 'btn-block btn btn-outline-dark mt-3';
     retakeBtn.id = "retakeButton";
     retakeBtn.innerHTML = `Retake Quiz`;
     let displayResult = document.createElement('div'); 
