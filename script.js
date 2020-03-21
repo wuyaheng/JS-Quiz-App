@@ -99,7 +99,7 @@ function displayQuestion() {
 
 function checkAnswer() {
     if (this.textContent !== questions[currentQuestion].answer) {
-        alert(`Wrong! Correct answer is ${questions[currentQuestion].answer}`);
+        alert(`Haha, you got the wrong one! The correct answer is ${questions[currentQuestion].answer}`);
         nextQuestion();
     } else {
         currentScore = currentScore + 1;
