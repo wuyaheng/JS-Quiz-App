@@ -117,19 +117,36 @@ function endQuiz() {
     choiceContainer.innerHTML = '';
     document.body.style.background = 'transparent';
     let retakeBtn = document.createElement('button');
-    retakeBtn.className = 'btn-block btn btn-outline-dark mt-3';
-    retakeBtn.id = "retakeButton";
-    retakeBtn.innerHTML = `Retake Quiz`;
+    let saveBtn = document.createElement('button');
+    let inputName = document.createElement('input');
     let displayResult = document.createElement('div'); 
-    displayResult.className = 'card-body';
+    inputName.setAttribute("placeholder", "Please enter your name here...");
+    inputName.className = 'input-group input-group-lg p-2';
+    saveBtn.className = 'btn btn-outline-dark m-3';
+    saveBtn.innerHTML = 'Save Result';
+    retakeBtn.className = 'btn btn-outline-dark mr-3 ml-3 mb-3';
+    retakeBtn.id = "retakeButton";
+    retakeBtn.innerHTML = 'Retake Quiz';
+    displayResult.className = 'card-body text-center';
     displayResult.innerHTML = `You got ${currentScore} out of ${questions.length} questions correct!`;
     if(currentScore == questions.length) {
-        resultContainer.appendChild(displayResult).appendChild(retakeBtn); 
+        resultContainer.appendChild(displayResult);
+        resultContainer.appendChild(inputName);
+        resultContainer.appendChild(saveBtn);
+        resultContainer.appendChild(retakeBtn); 
         document.body.style.background = "url('images/giphyRight.gif')";
     } else {
-        resultContainer.appendChild(displayResult).appendChild(retakeBtn);   
+        resultContainer.appendChild(displayResult);
+        resultContainer.appendChild(inputName);
+        resultContainer.appendChild(saveBtn);
+        resultContainer.appendChild(retakeBtn);   
         document.body.style.background = "url('images/giphyWrong.gif')"; 
     }
+
+    saveBtn.addEventListener("click", function(){
+       localStorage.setItem(inputName.value,currentScore);
+    })
+
     
 }
 
