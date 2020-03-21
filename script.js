@@ -145,6 +145,7 @@ function endQuiz() {
 
     saveBtn.addEventListener("click", function(){
        localStorage.setItem(inputName.value,currentScore);
+       confirm("Your result has been saved. Thank you for taking my quiz!")
     })
 
     
