@@ -16,33 +16,62 @@ function startQuiz(){
 
 var questions = [
     {
-        question: "1. What is a software?",
-        choices: ["A. Software is documentation and configuration of data", 
-        "B. Software is set of programs", 
-        "C. Software is set of programs, documentation & configuration of data",
-        "D. None of the mentioned"],
-        answer: "C. Software is set of programs, documentation & configuration of data"},
+        question: "1. Donald Trump’s is short. Arnold Schwarzenegger’s is long. And Beyonce doesn’t have it. What is it?",
+        choices: ["A. Hair", 
+        "B. Family name", 
+        "C. Beard",
+        "D. Leg"],
+        answer: "B. Family name"},
     {
-        question: "2. Representation of data structure in memory is known as:",
-        choices: ["A. Recursive", 
-        "B. Abstract data type", 
-        "C. Storage structure",
-        "D. File structure"],
-        answer: "B. Abstract data type"},
+        question: "2. What is made out of rubber, often handed out at many schools and colleges, and is used to avoid mistakes?",
+        choices: ["A. Balloons", 
+        "B. Erasers", 
+        "C. Rubber gloves",
+        "D. Stain Remover"],
+        answer: "B. Erasers"},
     {
-        question: "3. How does JavaScript store dates in a date object?",
-        choices: ["A. The number of milliseconds since January 1st, 1970",
-        "B. The number of days since January 1st, 1900", 
-        "C. The number of seconds since Netscape's public stock offering",
+        question: "3. If you jump off the roof of a three-story building, where would you land?",
+        choices: ["A. Hospital",
+        "B. White house", 
+        "C. Beach",
         "D. None of the above"],
-        answer: "A. The number of milliseconds since January 1st, 1970"},
+        answer: "A. Hospital"},
     {
-        question: "4. Which types of image maps can be used with JavaScript?",
-        choices: ["A. Server-side image maps", 
-        "B. Client-side image maps", 
-        "C. Server-side image maps and Client-side image maps",
+        question: "4. Everyone has one thing starting with “V” and can use it to get what they want. What is it?",
+        choices: ["A. Vase", 
+        "B. Voice", 
+        "C. Visa",
         "D. None of the above"],
-        answer: "B. Client-side image maps"} 
+        answer: "B. Voice"},
+    {
+        question: "5. If there are 6 apples and you take away 4, how many do you have?",
+        choices: ["A. 4", 
+        "B. 2", 
+        "C. 6",
+        "D. None of the above"],
+        answer: "A. 4"},  
+    {
+        question: "6. How Many Bones Does An Adult Human Have?",
+        choices: ["A. 310", 
+        "B. 257", 
+        "C. 167",
+        "D. 206"],
+        answer: "D. 206"},
+    {
+        question: "7. Which Country Does The Sport Football Come From?",
+        choices: ["A. Italy", 
+        "B. France", 
+        "C. England",
+        "D. Portugal"],
+        answer: "C. England"},
+    {
+        question: "8. How Many Sides Do Three Triangles And Three Rectangles Have In Total?",
+        choices: ["A. 20", 
+        "B. 21", 
+        "C. 22",
+        "D. 23"],
+        answer: "B. 21"}
+
 ];
 
 function displayQuestion() {
