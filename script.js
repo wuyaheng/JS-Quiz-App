@@ -120,9 +120,9 @@ function endQuiz() {
     let saveBtn = document.createElement('button');
     let inputName = document.createElement('input');
     let displayResult = document.createElement('div'); 
-    inputName.setAttribute("placeholder", "Please enter your name here...");
-    inputName.className = 'input-group input-group-lg p-2';
-    saveBtn.className = 'btn btn-outline-dark m-3';
+    inputName.setAttribute("placeholder", " Please enter your name here...");
+    inputName.className = 'm-3 lg pt-2 pb-2';
+    saveBtn.className = 'btn btn-outline-dark mr-3 ml-3 mb-3';
     saveBtn.innerHTML = 'Save Result';
     retakeBtn.className = 'btn btn-outline-dark mr-3 ml-3 mb-3';
     retakeBtn.id = "retakeButton";
