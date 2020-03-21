@@ -1,6 +1,6 @@
 let currentQuestion = 0;
 let currentScore = 0; 
-let resultContainer = document.querySelector('#result-container') 
+let resultContainer = document.querySelector('#result-container');
 const questionContainer = document.querySelector('#question-container');
 const choiceContainer = document.querySelector('#choice-container');
 const answerContainer = document.querySelector('#answer-container');
@@ -87,7 +87,7 @@ function displayQuestion() {
         questionContainer.appendChild(h5Question);
 
         for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
-            let btnChoices = document.createElement('button');
+            var btnChoices = document.createElement('button');
             btnChoices.innerHTML = '';
             btnChoices.className = 'list-group-item list-group-item-action';
             btnChoices.innerHTML = questions[currentQuestion].choices[i];
@@ -99,6 +99,7 @@ function displayQuestion() {
 
 function checkAnswer() {
     if (this.textContent !== questions[currentQuestion].answer) {
+        alert(`Wrong! Correct answer is ${questions[currentQuestion].answer}`);
         nextQuestion();
     } else {
         currentScore = currentScore + 1;
