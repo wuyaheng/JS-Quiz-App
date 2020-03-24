@@ -10,6 +10,7 @@ const answerContainer = document.querySelector('#answer-container');
 
 function startQuiz(){
     document.getElementById('btn').style.visibility = "hidden";
+    countdown(3);
     return displayQuestion();
 }
 
@@ -113,6 +114,7 @@ function nextQuestion() {
 }
 
 function endQuiz() {
+    clearInterval(timeinterval);
     questionContainer.innerHTML = '';
     choiceContainer.innerHTML = '';
     document.body.style.background = 'transparent';
@@ -163,4 +165,24 @@ function reloadApp(){
 }
 
 
+var timeinterval;
+function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes;
+    function tick() {
+        var counter = document.getElementById("time-container");
+        var current_minutes = mins-1;
+        seconds--;
+        counter.innerHTML = `<span>${current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds)}</span>`;
+        counter.className = 'btn btn-dark';
+        if( seconds > 0 ) {
+            timeinterval = setTimeout(tick, 1000);
+        } else {
+            if(mins > 1){
+                countdown(mins-1);           
+            }
+        }
+    }
+    tick();
+}
 
