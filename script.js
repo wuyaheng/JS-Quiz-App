@@ -100,11 +100,14 @@ function displayQuestion() {
 
 function checkAnswer() {
     if (this.textContent !== questions[currentQuestion].answer) {
-        alert(`Haha, you got the wrong one! The correct answer is ${questions[currentQuestion].answer}`);
-        nextQuestion();
+        console.log(this)
+        this.style.backgroundColor = '#DF5E6B';
+        setTimeout(nextQuestion,500);
     } else {
         currentScore = currentScore + 1;
-        nextQuestion();
+        this.style.backgroundColor = '#499F68';
+        setTimeout(nextQuestion,500);
+        // nextQuestion();
     }
 }
    
