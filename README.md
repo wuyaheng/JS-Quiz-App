@@ -3,7 +3,7 @@
 ![Untitled_ Jun 21, 2020 11_24 AM](https://user-images.githubusercontent.com/52837649/85228701-f8ec2e80-b3b2-11ea-99be-4981f3227356.gif)
 
 ## Description
-A quiz with four multiple choice questions.
+A quiz app with four multiple choice questions saves each user's final result in the local storage.
 
 ## Table of Contents
 
@@ -19,11 +19,11 @@ A quiz with four multiple choice questions.
 
 
 ## Tech/Framework Used
-JavaScript, HTML, CSS
+JavaScript, HTML, CSS, local storage
 
 
 ## Usage
-Click start button
+Click the start button and begin answering the questions
 
 ## Contributor
 Phoebe Yaheng Wu
