@@ -13,7 +13,7 @@ A quiz app with four multiple choice questions saves each user's final result in
 
 * Contributor
 
-* links
+* link
 
 * Questions
 
